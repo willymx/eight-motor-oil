@@ -1,0 +1,111 @@
+<!-- src/layouts/LayoutPrincipal.astro -->
+---
+import SEO from '../componentes/comunes/SEO.astro';
+
+// Propiedades para personalizar el SEO
+export interface Props {
+  titulo?: string;
+  descripcion?: string;
+  palabrasClave?: string;
+  imagenOG?: string;
+}
+
+const { 
+  titulo = "8 Eight Motor Oil | Aceite Lubricante Automotriz", 
+  descripcion = "Sitio web de 8eight motor oil aceite lubricante automotriz de gran calidad y excelente precio, hecho en estados unidos.",
+  palabrasClave = "aceite automotriz, aceite para motor, aceite para diesel, aceite hidraulico, lubricante de cadena",
+  imagenOG = "/images/og-image.jpg" 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+      <!-- Importar CSS en el mismo orden que los tenías originalmente -->
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <link href="/css/global.css" rel="stylesheet">
+  <link href="/css/font-awesome.css" rel="stylesheet">
+  <link href="/css/flaticon.css" rel="stylesheet">
+  <link href="/css/animate.css" rel="stylesheet">
+  <link href="/css/owl.css" rel="stylesheet">
+  <link href="/css/slick.css" rel="stylesheet">
+  <link href="/css/preloader.css" rel="stylesheet">
+  <link href="/css/animation.css" rel="stylesheet">
+  <link href="/css/jquery-ui.css" rel="stylesheet">
+  <link href="/css/custom-animate.css" rel="stylesheet">
+  <link href="/css/magnific-popup.css" rel="stylesheet">
+  <link href="/css/odometer-theme-default.css" rel="stylesheet">
+  <link href="/css/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/responsive.css" rel="stylesheet">
+  <SEO 
+    titulo={titulo}
+    descripcion={descripcion}
+    palabrasClave={palabrasClave}
+    imagenOG={imagenOG}
+  />
+  
+  <!-- Slots para metadatos adicionales si son necesarios -->
+  <slot name="head" />
+</head>
+<body>
+  <!-- Cursor personalizado -->
+  <div class="cursor"></div>
+
+  <!-- Contenedor principal de la página -->
+  <div class="page-wrapper">
+    
+        <!-- Preloader / Pantalla de carga -->
+        <div class="loader-wrap">
+            <div class="preloader">
+                <div class="preloader-close">x</div>
+                <div id="handle-preloader" class="handle-preloader">
+                    <div class="animation-preloader">
+                        <img src="images/logo-load.webp" alt="8 Eight Motor Oil" style="height: 15rem;">
+                    </div>  
+                </div>
+            </div>
+        </div> 
+
+    <!-- Líneas verticales decorativas -->
+    <div class="vertical-lines-wrapper" style="z-index: 0;">
+      <div class="vertical-lines">
+        <div class="vertical-effect"></div>
+        <div class="vertical-effect"></div>
+        <div class="vertical-effect"></div>
+        <div class="vertical-effect"></div>
+        <div class="vertical-effect"></div>
+        <div class="vertical-effect"></div>
+      </div>
+    </div>
+
+    <!-- Botón de scroll hacia arriba -->
+    <div class="progress-wrap active-progress">
+      <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919px, 307.919px; stroke-dashoffset: 228.265px;"></path>
+      </svg>
+    </div>
+    
+    <!-- Contenido principal -->
+    <slot />
+  </div>
+
+  <!-- Scripts JS con is:inline -->
+  <script is:inline src="/js/jquery.js"></script>
+  <script is:inline src="/js/popper.min.js"></script>
+  <script is:inline src="/js/bootstrap.min.js"></script>
+  <script is:inline src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script is:inline src="/js/magnific-popup.min.js"></script>
+  <script is:inline src="/js/appear.js"></script>
+  <script is:inline src="/js/parallax.min.js"></script>
+  <script is:inline src="/js/tilt.jquery.min.js"></script>
+  <script is:inline src="/js/jquery.paroller.min.js"></script>
+  <script is:inline src="/js/owl.js"></script>
+  <script is:inline src="/js/wow.js"></script>
+  <script is:inline src="/js/odometer.js"></script>
+  <script is:inline src="/js/backToTop.js"></script>
+  <script is:inline src="/js/jquery-ui.js"></script>
+  <script is:inline src="/js/cursor-script.js"></script>
+  <script is:inline src="/js/script.js"></script>
+</body>
+</html>

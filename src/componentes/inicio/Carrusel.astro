@@ -1,0 +1,162 @@
+<!-- src/componentes/inicio/Carrusel.astro -->
+---
+// Puedes agregar lógica aquí si es necesario
+---
+
+<section class="main-slider">
+    <div class="main-slider-carousel owl-theme owl-carousel">
+        <!-- Slide 01 -->
+        <div class="slide">
+            <div class="image-layer" style="background-image:url(/images/main-slider/image-2.webp)"></div>
+            <div class="overlay-layer"></div>
+            <div class="pattern-layer" style="background-image:url(/images/main-slider/pattern-3.webp)"></div>
+            <div class="pattern-layer-two" style="background-image:url(/images/main-slider/pattern-2.png)"></div>
+            <div class="auto-container">
+                <!-- Columna de contenido -->
+                <div class="content-column">
+                    <div class="inner-column">
+                        <h1>LA MARCA FAVORITA<br>DE LOS TALLES Y MAYORISTAS</h1>
+                        <div class="text-slider">8 Eight Motor Oil ofrece márgenes atractivos, calidad garantizada y beneficios exclusivos para nuestros socios comerciales</div>
+                        <div class="slider-button">
+                            <a href="https://wa.me/+523333333333" class="theme-btn btn-style-four clearfix">
+                                <span class="btn-wrap">
+                                    <span class="text-one">Solicita más información</span>
+                                    <span class="text-two">WhatsApp</span>
+                                </span>
+                                <i class="fa fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 02 -->
+        <div class="slide">
+            <div class="image-layer" style="background-image:url(/images/main-slider/image-1.webp)"></div>
+            <div class="overlay-layer"></div>
+            <div class="pattern-layer" style="background-image:url(/images/main-slider/pattern-3.webp)"></div>
+            <div class="pattern-layer-two" style="background-image:url(/images/main-slider/pattern-2.png)"></div>
+            <div class="auto-container">
+                <!-- Columna de contenido -->
+                <div class="content-column">
+                    <div class="inner-column">
+                        <h1>CALIDAD AMERICANA<br>BENEFICIOS EXCLUSIVOS</h1>
+                        <div class="text-slider">Producto formulado en USA con apoyo técnico, material publicitario y asesoria personalizada a distribuidores</div>
+                        <div class="slider-button">
+                            <a href="https://wa.me/+523333333333" class="theme-btn btn-style-four clearfix">
+                                <span class="btn-wrap">
+                                    <span class="text-one">Solicita más información</span>
+                                    <span class="text-two">WhatsApp</span>
+                                </span>
+                                <i class="fa fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Estilos específicos solo para el carrusel */
+.main-slider .overlay-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.main-slider .content-column {
+    position: relative;
+    z-index: 10;
+}
+
+.main-slider .inner-column {
+    text-align: center;
+}
+
+.main-slider .inner-column h1 {
+    font-size: 3.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+.main-slider .text-slider {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.main-slider .slider-button {
+    margin-top: 20px;
+}
+
+.main-slider .btn-style-four {
+    padding: 15px 30px;
+    font-weight: 600;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.main-slider .btn-style-four i {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .main-slider .inner-column h1 {
+        font-size: 2.2rem;
+    }
+    
+    .main-slider .text-slider {
+        font-size: 1rem;
+    }
+}
+</style>
+
+<script>
+// Script para configurar el tiempo de duración de cada slide
+document.addEventListener('DOMContentLoaded', function() {
+    const owlCarousel = $('.main-slider-carousel');
+    
+    if (owlCarousel.length) {
+        // Configuración del carrusel
+        owlCarousel.owlCarousel({
+            animateOut: 'slideOutDown',
+            animateIn: 'fadeIn',
+            loop: true,
+            margin: 0,
+            nav: true,
+            smartSpeed: 500,
+            autoplay: true,
+            autoplayTimeout: 8000, // 8 segundos (duración de cada slide)
+            navText: [ '<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>' ],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1024: {
+                    items: 1
+                }
+            }
+        });
+    }
+});
+</script>

@@ -1,0 +1,157 @@
+---
+import LayoutPrincipal from './LayoutPrincipal.astro';
+import Cabecera from '../componentes/comunes/Cabecera.astro';
+import PiePagina from '../componentes/comunes/PiePagina.astro';
+import FormularioWhatsApp from '../componentes/comunes/FormularioWhatsApp.astro';
+
+export interface Props {
+  titulo: string;
+  descripcion?: string;
+  palabrasClave?: string;
+  imagenOG?: string;
+}
+
+const { 
+  titulo,
+  descripcion,
+  palabrasClave,
+  imagenOG
+} = Astro.props;
+---
+
+<LayoutPrincipal 
+  titulo={`${titulo} | Aceites 8 Eight Motor Oil`}
+  descripcion={descripcion}
+  palabrasClave={palabrasClave}
+  imagenOG={imagenOG}
+>
+  <!-- Cabecera con navegación -->
+  <Cabecera />
+  
+  <!-- Banner del producto -->
+  <section class="page-title" style="background-image:url(/images/background/pattern-16.png)">
+    <div class="auto-container">
+      <ul class="bread-crumb clearfix">
+        <li><a href="/">Inicio</a></li>
+        <li>Aceites & Lubricantes</li>
+        <li>{titulo}</li>
+      </ul>
+      <h2>{titulo} <span class="marca">8 Eight Motor Oil®</span></h2>
+    </div>
+  </section>
+  
+  <!-- Contenido principal con sidebar -->
+  <div class="sidebar-page-container">
+    <div class="pattern-layer" style="background-image:url(/images/background/pattern-25.png)"></div>
+    <div class="auto-container">
+      <div class="row clearfix">
+        
+        <!-- Sidebar Side -->
+        <div class="sidebar-side left-sidebar col-lg-4 col-md-12 col-sm-12">
+          <aside class="sidebar sticky-top">
+            
+            <!-- Ficha Técnica Widget -->
+            <div class="sidebar-widget download-widget">
+              <div class="widget-content">
+                <div class="sidebar-title">
+                  <h4>Descarga la Ficha Técnica</h4>
+                </div>
+                <ul class="download-list">
+                  <li>
+                    <a href="#" aria-label={`Descargar ficha técnica de ${titulo}`}>
+                      PDF Oficial – <slot name="nombre-ficha-tecnica" />
+                      
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Menú de Productos Widget -->
+            <div class="sidebar-widget service-widget">
+              <div class="widget-content">
+                <div class="sidebar-title">
+                  <h4>Nuestra línea completa</h4>
+                </div>
+                <ul class="service-list">
+                  <li class={titulo.includes("SAE 40") ? "current" : ""}><a href="/productos-aceite-sae40">Aceite Monogrado SAE 40</a></li>
+                  <li class={titulo.includes("SAE 50") ? "current" : ""}><a href="/productos-aceite-sae50">Aceite Monogrado SAE 50</a></li>
+                  <li class={titulo.includes("25W50") ? "current" : ""}><a href="/productos-aceite-25w50">Aceite 25W50 Alto Kilometraje</a></li>
+                  <li class={titulo.includes("10W30") ? "current" : ""}><a href="/productos-aceite-10w30">Aceite Multigrado 10W30</a></li>
+                  <li class={titulo.includes("15W40") ? "current" : ""}><a href="/productos-aceite-15w40">Aceite Multigrado 15W40</a></li>
+                  <li class={titulo.includes("20W50") ? "current" : ""}><a href="/productos-aceite-20w50">Aceite Multigrado 20W50</a></li>
+                  <li class={titulo.includes("ATF") ? "current" : ""}><a href="/productos-aceite-atf">Fluido ATF Transmisión</a></li>
+                  <li class={titulo.includes("Moto 4T") ? "current" : ""}><a href="/productos-moto-4t">Moto 4T 20W50</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Widget Formulario WhatsApp -->
+            <div class="sidebar-widget support-widget">
+              <div class="support-content">
+                <div class="title-box">
+                  <h2 style="color:red;">¿Quieres ser distribuidor autorizado?</h2>
+                  <div class="text">Accede a precios mayoristas y soporte técnico exclusivo.</div>
+                </div>
+                
+                <!-- Formulario WhatsApp -->
+                <FormularioWhatsApp />
+                
+              </div>
+            </div>
+            
+          </aside>
+        </div>
+        
+        <!-- Content Side -->
+        <div class="content-side right-sidebar col-lg-8 col-md-12 col-sm-12">
+          <div class="service-detail">
+            <div class="inner-box">
+              <!-- Imagen Principal del Producto -->
+              <div class="image">
+                <slot name="imagen-producto" />
+              </div>
+              
+              <div class="lower-content">
+                <!-- Título y Descripción Principal -->
+                <h3><slot name="titulo-producto" /> – Lubricación de Alto Desempeño</h3>
+                <slot name="descripcion-principal" />
+                
+                <!-- Características/Beneficios en Columnas -->
+                <div class="options-outer">
+                  <slot name="caracteristicas" />
+                </div>
+                
+                <!-- Presentaciones -->
+                <h4>Formatos disponibles</h4>
+                <slot name="presentaciones" />
+                
+                <!-- Galería de Imágenes (opcional) -->
+                <slot name="galeria-imagenes" />
+                
+                <!-- Preguntas Frecuentes -->
+                <div class="accordion-outer">
+                  <div class="title-box">
+                    <h4>Preguntas Frecuentes</h4>
+                    <div class="text">Consulta las dudas más comunes sobre este producto. Contáctanos por WhatsApp y obtén respuesta en menos de 15&nbsp;min.</div>
+                  </div>
+                  
+                  <!-- Accordian Box -->
+                  <slot name="preguntas-frecuentes" />
+                </div>
+                
+                <!-- CTA -->
+                <slot name="cta" />
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <!-- Pie de página -->
+  <PiePagina />
+</LayoutPrincipal>

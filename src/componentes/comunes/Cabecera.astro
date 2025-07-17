@@ -1,0 +1,234 @@
+<!-- src/componentes/comunes/Cabecera.astro -->
+---
+// Podemos determinar si estamos en la página principal o en una página de producto
+const currentPath = Astro.url.pathname;
+const isHomePage = currentPath === '/' || currentPath === '/index.html';
+---
+
+<header id="inicio" class="main-header" style="z-index: 100;">
+    <!-- Barra superior con slogan y redes sociales -->
+    <div class="header-top">
+        <div class="auto-container">
+            <div class="clearfix">
+                <!-- Slogan -->
+                <div class="top-left">
+                    <div class="text">La marca preferida de los profesionales | <a href="/">8 Eight Motor Oil</a></div>
+                </div>
+                
+                <!-- Redes sociales -->
+                <div class="top-right pull-right">
+                    <div class="clock">Síguenos en Redes Sociales</div>
+                    <div class="social-box">
+                        <a href="https://facebook.com/8eightmotoroil" class="fa fa-facebook" target="_blank" aria-label="Facebook"></a>
+                        <a href="https://instagram.com/8eightmotoroil" class="fa fa-instagram" target="_blank" aria-label="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección superior del header con logo e información de contacto -->
+    <div class="header-upper">
+        <div class="auto-container">
+            <div class="clearfix">
+                <!-- Logo -->
+                <div class="pull-left logo-box">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="/images/logo.svg" alt="8 Eight Motor Oil Logo" title="8 Eight Motor Oil" style="height: 5rem;">
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Información de contacto -->
+                <div class="pull-right upper-right clearfix">
+                    <!-- Teléfono -->
+                    <div class="upper-column info-box">
+                        <div class="icon-box"><span class="flaticon-telephone"></span></div>
+                        <ul>
+                            <li><strong>33 3333 3333</strong></li>
+                            <li>Atención a Clientes</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- WhatsApp -->
+                    <div class="upper-column info-box">
+                        <div class="icon-box"><span class="flaticon-whatsapp"></span></div>
+                        <ul>
+                            <li><strong>33 3333 3333</strong></li>
+                            <li>WhatsApp Ventas</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="upper-column info-box">
+                        <div class="icon-box"><span class="flaticon-message"></span></div>
+                        <ul>
+                            <li><strong>ventas@8motoroil.com</strong></li>
+                            <li>Correo de Ventas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Menú de navegación principal -->
+    <div class="header-lower">
+        <div class="auto-container">
+            <div class="inner-container clearfix">
+                <div class="nav-outer">
+                    <!-- Botón de navegación móvil -->
+                    <div class="mobile-nav-toggler"><span class="icon flaticon-menu-3"></span></div>
+                    
+                    <!-- Menú principal -->
+                    <nav class="main-menu navbar-expand-md">
+                        <div class="navbar-header">
+                            <!-- Botón de toggle para responsive -->
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        
+                        <!-- Contenedor de enlaces de navegación -->
+                        <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+                            <ul class="navigation clearfix">
+                                <li class={isHomePage ? "current" : ""}>
+                                    <a href={isHomePage ? "#inicio" : "/"}>Inicio</a>
+                                </li>
+                                <li class={isHomePage ? "" : ""}>
+                                    <a href={isHomePage ? "#nosotros" : "/#nosotros"}>Nosotros</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href={isHomePage ? "#productos" : "/#productos"}>Productos</a>
+                                    <ul>
+                                        <li><a href="/productos-aceite-sae40" class={currentPath === '/productos-aceite-sae40' || currentPath === '/productos-aceite-sae40/' ? 'active' : ''}>SAE 40</a></li>
+                                        <li><a href="/productos-aceite-sae50" class={currentPath === '/productos-aceite-sae50' || currentPath === '/productos-aceite-sae50/' ? 'active' : ''}>SAE 50</a></li>
+                                        <li><a href="/productos-aceite-25w50" class={currentPath === '/productos-aceite-25w50' || currentPath === '/productos-aceite-25w50/' ? 'active' : ''}>25W50 Alto Kilometraje</a></li>
+                                        <li><a href="/productos-aceite-10w30" class={currentPath === '/productos-aceite-10w30' || currentPath === '/productos-aceite-10w30/' ? 'active' : ''}>10W30</a></li>
+                                        <li><a href="/productos-aceite-15w40" class={currentPath === '/productos-aceite-15w40' || currentPath === '/productos-aceite-15w40/' ? 'active' : ''}>15W40</a></li>
+                                        <li><a href="/productos-aceite-20w50" class={currentPath === '/productos-aceite-20w50' || currentPath === '/productos-aceite-20w50/' ? 'active' : ''}>20W50</a></li>
+                                        <li><a href="/productos-aceite-atf" class={currentPath === '/productos-aceite-atf' || currentPath === '/productos-aceite-atf/' ? 'active' : ''}>ATF Transmisión</a></li>
+                                        <li><a href="/productos-moto-4t" class={currentPath === '/productos-moto-4t' || currentPath === '/productos-moto-4t/' ? 'active' : ''}>Moto 4T 20W50</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href={isHomePage ? "#main-footer" : "/#main-footer"}>Contacto</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header fijo para scroll (sticky) -->
+    <div class="sticky-header">
+        <div class="auto-container clearfix">
+            <!-- Logo en sticky header -->
+            <div class="logo pull-left">
+                <a href="/" title="8 Eight Motor Oil">
+                    <img src="/images/logo.svg" alt="8 Eight Motor Oil Logo" title="8 Eight Motor Oil" style="height: 3rem;">
+                </a>
+            </div>
+            
+            <!-- Menú en sticky header -->
+            <div class="pull-right">
+                <nav class="main-menu">
+                    <!-- Se llena automáticamente via JavaScript -->
+                </nav>
+                
+                <!-- Botón de navegación móvil -->
+                <div class="mobile-nav-toggler"><span class="icon flaticon-menu-3"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menú móvil -->
+    <div class="mobile-menu">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><span class="icon fa fa-close"></span></div>
+        
+        <nav class="menu-box">
+            <div class="nav-logo">
+                <a href="/">
+                    <img src="/images/logo.webp" alt="8 Eight Motor Oil Logo" title="8 Eight Motor Oil">
+                </a>
+            </div>
+            <div class="menu-outer">
+                <!-- Se llena automáticamente via JavaScript -->
+            </div>
+        </nav>
+    </div>
+</header>
+
+<script is:inline>
+    // Script para mejorar la navegación en versión móvil y comportamiento del sticky header
+    document.addEventListener('DOMContentLoaded', function() {
+        // Manejo de menú móvil
+        const mobileNavToggler = document.querySelector('.mobile-nav-toggler');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const closeBtn = document.querySelector('.mobile-menu .close-btn');
+        const menuBackdrop = document.querySelector('.mobile-menu .menu-backdrop');
+        
+        if (mobileNavToggler) {
+            mobileNavToggler.addEventListener('click', function() {
+                mobileMenu.classList.add('visible-sidebar');
+                document.body.classList.add('mobile-menu-visible');
+            });
+        }
+        
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeMenu);
+        }
+        
+        if (menuBackdrop) {
+            menuBackdrop.addEventListener('click', closeMenu);
+        }
+        
+        function closeMenu() {
+            mobileMenu.classList.remove('visible-sidebar');
+            document.body.classList.remove('mobile-menu-visible');
+        }
+        
+        // Clonar el menú para versión móvil si no existe ya
+        const mainMenuItems = document.querySelector('.main-menu .navigation').cloneNode(true);
+        const mobileMenuOuter = document.querySelector('.mobile-menu .menu-outer');
+        
+        if (mobileMenuOuter && !mobileMenuOuter.querySelector('.navigation')) {
+            mobileMenuOuter.appendChild(mainMenuItems);
+        }
+        
+        // Asegurarse de que los enlaces de anclaje funcionan correctamente en todas las páginas
+        const anchorLinks = document.querySelectorAll('a[href^="#"]');
+        
+        anchorLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Si estamos en una página de producto y el enlace es a un anclaje en la página de inicio
+                const href = this.getAttribute('href');
+                const isAnchor = href.startsWith('#') && href.length > 1;
+                const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+                
+                if (isAnchor && !isHomePage) {
+                    // No hacer nada, permitir la navegación normal a homepage + anclaje
+                } else if (isAnchor) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        
+                        // Cerrar menú móvil si está abierto
+                        closeMenu();
+                    }
+                }
+            });
+        });
+    });
+</script>

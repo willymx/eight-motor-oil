@@ -1,0 +1,123 @@
+---
+// Lógica si es necesaria
+---
+
+<div class="support-form">
+  <form id="whatsappForm">
+    <div class="form-group">
+      <input type="text" name="nombre" placeholder="Nombre" required>
+    </div>
+    
+    <div class="form-group">
+      <input type="tel" name="telefono" placeholder="Teléfono" required>
+    </div>
+    
+    <div class="form-group">
+      <select name="consulta" required>
+        <option value="">Tipo de consulta</option>
+        <option value="Información">Información del producto</option>
+        <option value="Cotización">Solicitar cotización</option>
+        <option value="Distribuidor">Quiero ser distribuidor</option>
+        <option value="Técnica">Consulta técnica</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <textarea name="mensaje" placeholder="Tu mensaje" rows="3" required></textarea>
+    </div>
+    
+    <div class="form-group">
+      <button type="submit" class="theme-btn btn-style-one"><span class="txt">Contactar por WhatsApp <i class="fa fa-whatsapp"></i></span></button>
+    </div>
+  </form>
+</div>
+
+<style>
+  .support-form {
+    position: relative;
+    margin-bottom: var(--margin-bottom-30);
+  }
+  
+  .support-form .form-group {
+    position: relative;
+    margin-bottom: var(--margin-bottom-20);
+  }
+  
+  .support-form input[type="text"],
+  .support-form input[type="tel"],
+  .support-form select,
+  .support-form textarea {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 50px;
+    font-size: var(--font-15);
+    color: var(--color-eight);
+    line-height: 24px;
+    padding: 12px 20px;
+    border: 1px solid var(--color-fourtyseven);
+    background-color: var(--white-color);
+    border-radius: 4px;
+    transition: all 500ms ease;
+    -webkit-transition: all 500ms ease;
+  }
+  
+  .support-form select {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6"><path d="M0 0l6 6 6-6z" fill="%23666"/></svg>');
+    background-position: calc(100% - 15px) center;
+    background-repeat: no-repeat;
+  }
+  
+  .support-form textarea {
+    height: 100px;
+    resize: none;
+    padding-top: 12px;
+  }
+  
+  .support-form input[type="text"]:focus,
+  .support-form input[type="tel"]:focus,
+  .support-form select:focus,
+  .support-form textarea:focus {
+    border-color: var(--main-color);
+  }
+  
+  .support-form .theme-btn {
+    width: 100%;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .support-form .theme-btn .txt i {
+    margin-left: 5px;
+    font-size: 16px;
+  }
+</style>
+
+<script>
+  document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const nombre = this.querySelector('[name="nombre"]').value;
+    const telefono = this.querySelector('[name="telefono"]').value;
+    const consulta = this.querySelector('[name="consulta"]').value;
+    const mensaje = this.querySelector('[name="mensaje"]').value;
+    
+    // Construir mensaje para WhatsApp
+    const textoWhatsApp = `Hola, soy ${nombre}. Teléfono: ${telefono}. Consulta sobre: ${consulta}. Mensaje: ${mensaje}`;
+    
+    // Número de WhatsApp de la empresa
+    const numeroWhatsApp = "523333333333";
+    
+    // Crear URL de WhatsApp
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(textoWhatsApp)}`;
+    
+    // Abrir WhatsApp en nueva ventana
+    window.open(urlWhatsApp, '_blank');
+  });
+</script>

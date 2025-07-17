@@ -1,0 +1,469 @@
+---
+import LayoutProducto from '../layouts/LayoutProducto.astro';
+
+// Datos específicos de este producto
+const producto = {
+  nombre: "Aceite Multigrado SAE 25W-50 API SN High Mileage",
+  titulo: "Aceite Multigrado SAE 25W-50 API SN Alto Kilometraje",
+  categoria: "Gasolina",
+  descripcion: "Lubricante de alto rendimiento y calidad avanzada para motor. 8EIGHT MOTOR OIL API SN SAE 25W-50 Alto Kilometraje es un aceite mineral multigrado especialmente formulado para vehículos con alto kilometraje.",
+  imagen: "/images/producto 25w50.webp",
+  
+  caracteristicas: [
+    {
+      icono: "fa-tachometer",
+      texto: "Específico para motores con alto kilometraje"
+    },
+    {
+      icono: "fa-flask",
+      texto: "Viscosidad avanzada para motor con mayor desgaste"
+    },
+    {
+      icono: "fa-shield",
+      texto: "Cumple con la especificación API SN"
+    },
+    {
+      icono: "fa-thermometer-full",
+      texto: "Excelente rendimiento a temperatura elevada"
+    }
+  ],
+  
+  beneficios: [
+    {
+      icono: "fa-check-circle",
+      texto: "Mayor protección: Menor desgaste bajo condiciones severas"
+    },
+    {
+      icono: "fa-tint",
+      texto: "Película lubricante más gruesa para motores con desgaste"
+    },
+    {
+      icono: "fa-gauge",
+      texto: "Reduce el consumo de aceite y mejora la compresión"
+    },
+    {
+      icono: "fa-thermometer-half",
+      texto: "Rendimiento confiable en arranques en frío y calor extremo"
+    }
+  ],
+  
+  usos: [
+    {
+      icono: "fa-car",
+      texto: "Vehículos con más de 100,000 kilómetros"
+    },
+    {
+      icono: "fa-tachometer",
+      texto: "Motores que presentan mayor consumo de aceite"
+    },
+    {
+      icono: "fa-fire",
+      texto: "Operación en climas cálidos o condiciones severas"
+    },
+    {
+      icono: "fa-wrench",
+      texto: "Mejora el rendimiento de motores con desgaste"
+    }
+  ],
+  
+  presentaciones: [
+    {
+      icono: "fa-bottle",
+      texto: "946 ml (1 Litro)"
+    },
+    {
+      icono: "fa-cube",
+      texto: "19 Litros (Cubeta)"
+    }
+  ],
+  
+  fichaTecnica: "/fichas-tecnicas/25w50.pdf",
+  
+  certificaciones: [
+    {
+      nombre: "API SN",
+      descripcion: "API Service Category",
+      icono: "api-sn-icon"
+    },
+    {
+      nombre: "USA",
+      descripcion: "Formulated in USA",
+      icono: "usa-icon"
+    },
+    {
+      nombre: "PREMIUM",
+      descripcion: "Lubricantes Premium",
+      icono: "premium-icon"
+    },
+    {
+      nombre: "TECH",
+      descripcion: "Tecnología Avanzada",
+      icono: "tech-icon"
+    }
+  ],
+  
+  faqs: [
+    {
+      pregunta: "¿Por qué usar un aceite específico para alto kilometraje?",
+      respuesta: "Los motores con alto kilometraje presentan mayor desgaste en componentes internos como anillos, sellos y juntas, lo que puede resultar en un mayor consumo de aceite. El aceite 25W-50 Alto Kilometraje proporciona una película lubricante más gruesa que ayuda a sellar mejor estas áreas, reduce fugas, disminuye el consumo de aceite y mejora la compresión del motor."
+    },
+    {
+      pregunta: "¿Cuándo debo considerar usar el 25W-50 Alto Kilometraje?",
+      respuesta: "Debe considerar usar este aceite si su vehículo tiene más de 100,000 kilómetros, presenta síntomas de consumo de aceite (necesita rellenar entre cambios), tiene baja compresión, o si opera en condiciones de alta temperatura. También es una excelente opción para vehículos más antiguos que fueron diseñados para aceites de mayor viscosidad."
+    },
+    {
+      pregunta: "¿Qué diferencia hay entre un aceite regular y uno para alto kilometraje?",
+      respuesta: "Los aceites para alto kilometraje, como nuestro 25W-50, tienen una mayor viscosidad (son más espesos) y contienen aditivos especiales que ayudan a reacondicionar sellos y juntas, reducir el consumo de aceite, y mantener una mejor lubricación en motores con mayor tolerancia entre sus componentes debido al desgaste natural. Esto proporciona una mejor protección y puede extender la vida útil de motores con alto kilometraje."
+    }
+  ]
+};
+---
+
+<LayoutProducto 
+  titulo={producto.titulo}
+  descripcion={`${producto.nombre} - ${producto.descripcion}`}
+  palabrasClave={`${producto.nombre.toLowerCase()}, aceite motor, aceite multigrado, alto kilometraje, high mileage, 8eight, api sn`}
+>
+  <!-- Imagen Principal del Producto -->
+  <div slot="imagen-producto" class="product-image-container">
+    <img 
+      src={producto.imagen} 
+      alt={producto.nombre}
+      class="img-fluid"
+    />
+    <div class="product-badge">
+      <span class="badge-api">API SN</span>
+      <span class="badge-high">HIGH MILEAGE</span>
+      <span class="badge-type">25W-50</span>
+    </div>
+  </div>
+  
+  <!-- Título del Producto -->
+  <div slot="titulo-producto" class="product-title">
+    <h3>{producto.nombre}</h3>
+    <span class="product-category">Categoría: <strong>{producto.categoria}</strong></span>
+  </div>
+  
+  <!-- Nombre de la Ficha Técnica -->
+  <span slot="nombre-ficha-tecnica">
+    <i class="fa fa-file-pdf-o"></i> Ficha Técnica {producto.nombre}
+  </span>
+  
+  <!-- Descripción Principal -->
+  <div slot="descripcion-principal" class="product-description">
+    <div class="highlight-box">
+      <img src="/images/footer-logo.webp" alt="8 Eight Motor Oil Logo" class="highlight-logo" />
+      <h4>PROTECCIÓN QUE DURA MÁS</h4>
+    </div>
+    
+    <p>{producto.descripcion}</p>
+    
+    <p>Su viscosidad avanzada proporciona una película lubricante más gruesa, ideal para motores con mayor desgaste, reduciendo el consumo de aceite y mejorando la compresión. <strong>Resultado:</strong> un rendimiento más suave y eficiente.</p>
+    
+    <div class="uses-section">
+      <h5><i class="fa fa-cogs"></i> Ideal para:</h5>
+      <ul class="uses-list">
+        {producto.usos.map(uso => (
+          <li><i class={`fa ${uso.icono}`}></i> {uso.texto}</li>
+        ))}
+      </ul>
+    </div>
+    
+    <p class="conclusion-text">Nuestro aceite de alto kilometraje está diseñado para extender la vida útil de su vehículo, proporcionando una protección superior en motores que han acumulado un desgaste significativo a lo largo del tiempo.</p>
+  </div>
+  
+  <!-- Características/Beneficios en Columnas -->
+  <div slot="caracteristicas" class="features-benefits-section row clearfix">
+    <div class="column col-lg-6 col-md-12 col-sm-12">
+      <div class="feature-box">
+        <h5><i class="fa fa-star"></i> Características</h5>
+        <ul class="feature-list">
+          {producto.caracteristicas.map(item => (
+            <li><i class={`fa ${item.icono}`}></i> {item.texto}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="column col-lg-6 col-md-12 col-sm-12">
+      <div class="benefits-box">
+        <h5><i class="fa fa-check"></i> Beneficios</h5>
+        <ul class="benefits-list">
+          {producto.beneficios.map(item => (
+            <li><i class={`fa ${item.icono}`}></i> {item.texto}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Presentaciones -->
+  <div slot="presentaciones" class="presentations-section">
+    <h5><i class="fa fa-cubes"></i> Disponible en las siguientes presentaciones:</h5>
+    <ul class="presentations-list">
+      {producto.presentaciones.map(presentacion => (
+        <li><i class={`fa ${presentacion.icono}`}></i> {presentacion.texto}</li>
+      ))}
+    </ul>
+  </div>
+  
+  <!-- Certificaciones -->
+  <div slot="galeria-imagenes" class="certificates-section">
+    <h4><i class="fa fa-certificate"></i> Certificaciones y Tecnología</h4>
+    <div class="certificates-container row">
+      {producto.certificaciones.map(cert => (
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6 text-center mb-4">
+          <div class="certificate-item">
+            <div class="certificate-icon">{cert.nombre}</div>
+            <div class="certificate-text">{cert.descripcion}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="warning-section mt-4">
+      <h5><i class="fa fa-exclamation-triangle"></i> Advertencias de seguridad</h5>
+      <p class="warning-text">
+        <strong>PELIGRO.</strong> Producto inflamable. Evite el contacto prolongado con la piel y ojos. En caso de ingestión, <strong>NO</strong> induzca el vómito. Solicite atención médica inmediata. <strong>Mantenga fuera del alcance de niños y mascotas.</strong> Almacenar en lugar fresco, seco y lejos de fuentes de calor.
+      </p>
+    </div>
+    
+    <div class="recycling-section mt-4">
+      <h5><i class="fa fa-recycle"></i> Reciclaje y responsabilidad ambiental</h5>
+      <p class="recycling-text">
+        Recicle su aceite usado en los centros recolectores autorizados. Evite derrames y disponga el contenido en el sitio adecuado. <strong>¡Juntos cuidamos el medio ambiente!</strong>
+      </p>
+    </div>
+  </div>
+  
+  <!-- Preguntas Frecuentes -->
+  <ul slot="preguntas-frecuentes" class="accordion-box faq-section">
+
+    {producto.faqs.map((faq, index) => (
+      <li class={`accordion block ${index === 0 ? 'active-block' : ''}`}>
+        <div class={`acc-btn ${index === 0 ? 'active' : ''}`}>
+          <div class="icon-outer">
+            <span class="icon icon-plus fa fa-plus"></span>
+            <span class="icon icon-minus fa fa-minus"></span>
+          </div>
+          <i class="fa fa-question-circle-o"></i> {faq.pregunta}
+        </div>
+        <div class={`acc-content ${index === 0 ? 'current' : ''}`}>
+          <div class="content">
+            <div class="text"><i class="fa fa-info-circle"></i> {faq.respuesta}</div>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
+  
+  <!-- Sin CTA aquí, ya que está en el sidebar -->
+  
+  <style slot="head">
+    /* Estilos para mejorar la apariencia visual */
+    .product-image-container {
+      position: relative;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+    .product-badge span {
+      display: inline-block;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 4px;
+      color: white;
+    }
+    
+    .badge-api {
+      background-color: #f7d204;
+      color: #000 !important;
+    }
+    
+    .badge-high {
+      background-color: #db3a34;
+    }
+    
+    .badge-type {
+      background-color: #333;
+    }
+    
+    .product-title {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .product-title h3 {
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+      color: #222;
+    }
+    
+    .product-category {
+      color: #777;
+      font-size: 0.9rem;
+    }
+    
+    .highlight-box {
+      background-color: #f7f7f7;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .highlight-logo {
+      height: 1.2rem;
+      margin-right: 15px;
+    }
+    
+    .uses-section {
+      margin: 1.5rem 0;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-left: 4px solid #f7d204;
+      border-radius: 4px;
+    }
+    
+    .uses-list li {
+      margin-bottom: 8px;
+      padding-left: 10px;
+    }
+    
+    .uses-list li i {
+      margin-right: 10px;
+      color: #f7d204;
+    }
+    
+    .conclusion-text {
+      font-weight: 500;
+      margin-top: 1.5rem;
+    }
+    
+    .features-benefits-section {
+      margin: 2rem 0;
+    }
+    
+    .feature-box, .benefits-box {
+      padding: 20px;
+      border-radius: 8px;
+      height: 100%;
+    }
+    
+    .feature-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid #f7d204;
+    }
+    
+    .benefits-box {
+      background-color: #f0f0f0;
+      border-left: 4px solid #333;
+    }
+    
+    .feature-list li, .benefits-list li {
+      margin-bottom: 12px;
+      padding-left: 10px;
+    }
+    
+    .feature-list li i, .benefits-list li i {
+      margin-right: 10px;
+      color: #f7d204;
+    }
+    
+    .presentations-section {
+      margin: 1.5rem 0;
+    }
+    
+    .presentations-list li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    
+    .presentations-list li i {
+      margin-right: 10px;
+      color: #f7d204;
+    }
+    
+    .certificates-section {
+      margin: 2rem 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+    
+    .certificates-container {
+      margin-top: 1.5rem;
+    }
+    
+    .certificate-item {
+      background-color: #fff;
+      padding: 15px 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+    
+    .certificate-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .certificate-icon {
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #f7d204;
+    }
+    
+    .certificate-text {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    
+    .warning-section, .recycling-section {
+      padding: 15px;
+      border-radius: 6px;
+    }
+    
+    .warning-section {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffd24e;
+    }
+    
+    .recycling-section {
+      background-color: #d1e7dd;
+      border-left: 4px solid #5aa17f;
+    }
+    
+    .warning-text, .recycling-text {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+    
+    .faq-section {
+      margin: 2rem 0;
+    }
+    
+    .faq-header {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    
+    /* Se removieron los estilos CTA porque ya existe un formulario en el sidebar */
+  </style>
+</LayoutProducto>

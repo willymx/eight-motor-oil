@@ -1,0 +1,73 @@
+<!-- src/componentes/comunes/SEO.astro -->
+---
+export interface Props {
+  titulo?: string;
+  descripcion?: string;
+  palabrasClave?: string;
+  imagenOG?: string;
+}
+
+const { 
+  titulo = "8 Eight Motor Oil | Aceite Lubricante Automotriz", 
+  descripcion = "Sitio web de 8eight motor oil aceite lubricante automotriz de gran calidad y excelente precio, hecho en estados unidos.",
+  palabrasClave = "aceite automotriz, aceite para motor, aceite para diesel, aceite hidraulico, lubricante de cadena",
+  imagenOG = "/images/og-image.jpg" 
+} = Astro.props;
+---
+
+<!-- Meta tags básicos -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<!-- Información del sitio -->
+<title>{titulo}</title>
+<meta name="description" content={descripcion}>
+<meta name="keywords" content={palabrasClave}>
+<meta name="robots" content="index, follow">
+<meta name="author" content="reidis | marketing digital">
+
+<!-- Información de autoría -->
+<link rel="author" href="http://reidis.com" title="Reidis">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+<link rel="icon" href="/images/favicon.png" type="image/x-icon">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://8motoroil.com/">
+<meta property="og:title" content={titulo}>
+<meta property="og:description" content={descripcion}>
+<meta property="og:image" content={imagenOG}>
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://8motoroil.com/">
+<meta name="twitter:title" content={titulo}>
+<meta name="twitter:description" content={descripcion}>
+<meta name="twitter:image" content={imagenOG}>
+
+<!-- Schema.org para SEO -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://8motoroil.com",
+    "name": "8 Eight Motor Oil | Aceite lubricante automotriz",
+    "description": "8 Eight Motor Oil la marca preferida de los talleres y refaccionarias.",
+    "author": {
+        "@type": "Organization",
+        "name": "Reidis",
+        "url": "http://reidis.com"
+    }
+}
+</script>
+
+
+
+<!-- Fuentes de Google -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">

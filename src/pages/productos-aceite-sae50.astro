@@ -1,0 +1,461 @@
+---
+import LayoutProducto from '../layouts/LayoutProducto.astro';
+
+// Datos específicos de este producto
+const producto = {
+  nombre: "Aceite Monogrado SAE 50 API SL",
+  titulo: "Aceite Monogrado SAE 50 API SL",
+  categoria: "Gasolina",
+  descripcion: "Lubricante de alto rendimiento y calidad avanzada para motor. 8EIGHT MOTOR OIL API SL SAE 50 es un aceite monogrado formulado con aceites básicos vírgenes y aditivos cuidadosamente seleccionados para proteger y enfriar el motor bajo condiciones severas.",
+  imagen: "/images/producto sae 50.webp",
+  
+  caracteristicas: [
+    {
+      icono: "fa-flask",
+      texto: "Formulado con aceites básicos vírgenes"
+    },
+    {
+      icono: "fa-shield",
+      texto: "Aditivos de alta calidad cuidadosamente seleccionados"
+    },
+    {
+      icono: "fa-snowflake-o",
+      texto: "Diseñado para proteger y enfriar el motor"
+    },
+    {
+      icono: "fa-certificate",
+      texto: "Cumple con la especificación API SL"
+    }
+  ],
+  
+  beneficios: [
+    {
+      icono: "fa-check-circle",
+      texto: "Protección confiable: Reduce desgaste y combate la corrosión"
+    },
+    {
+      icono: "fa-thermometer-full",
+      texto: "Desempeño constante: Mantiene estabilidad en climas cálidos"
+    },
+    {
+      icono: "fa-tint",
+      texto: "Limpieza superior: Evita depósitos y prolonga la vida útil"
+    },
+    {
+      icono: "fa-leaf",
+      texto: "Consumo eficiente: Sella mejor y optimiza el uso del aceite"
+    }
+  ],
+  
+  usos: [
+    {
+      icono: "fa-wrench",
+      texto: "Mantener el motor limpio y protegido"
+    },
+    {
+      icono: "fa-ban",
+      texto: "Evitar la acumulación de lodos, lacas y gomas"
+    },
+    {
+      icono: "fa-shield",
+      texto: "Prevenir la corrosión y el desgaste interno"
+    },
+    {
+      icono: "fa-balance-scale",
+      texto: "Equilibrar la presión entre pistón y cilindro"
+    }
+  ],
+  
+  presentaciones: [
+    {
+      icono: "fa-bottle",
+      texto: "946 ml (1 Litro)"
+    },
+    {
+      icono: "fa-cube",
+      texto: "19 Litros (Cubeta)"
+    }
+  ],
+  
+  fichaTecnica: "/fichas-tecnicas/sae50.pdf",
+  
+  certificaciones: [
+    {
+      nombre: "API SL",
+      descripcion: "API Service Category",
+      icono: "api-sl-icon"
+    },
+    {
+      nombre: "USA",
+      descripcion: "Formulated in USA",
+      icono: "usa-icon"
+    },
+    {
+      nombre: "PREMIUM",
+      descripcion: "Lubricantes Premium",
+      icono: "premium-icon"
+    },
+    {
+      nombre: "TECH",
+      descripcion: "Tecnología Avanzada",
+      icono: "tech-icon"
+    }
+  ],
+  
+  faqs: [
+    {
+      pregunta: "¿Para qué tipo de motores está recomendado el SAE 50?",
+      respuesta: "El SAE 50 está especialmente recomendado para motores de gasolina con alto kilometraje o desgaste significativo. Es ideal para vehículos que operan en climas muy cálidos o en condiciones de trabajo pesado, donde se requiere una mayor viscosidad para mantener una película lubricante adecuada."
+    },
+    {
+      pregunta: "¿Cuál es la diferencia entre SAE 40 y SAE 50?",
+      respuesta: "La principal diferencia es la viscosidad o espesor del aceite. El SAE 50 es más viscoso (más espeso) que el SAE 40, lo que proporciona una mejor protección para motores con mayor desgaste o que operan a altas temperaturas. Sin embargo, puede ser menos eficiente en climas fríos o durante el arranque."
+    },
+    {
+      pregunta: "¿Cuándo debo usar SAE 50 en lugar de otros grados?",
+      respuesta: "Se recomienda usar SAE 50 cuando su vehículo específicamente lo requiere según el manual del fabricante, cuando opera en regiones de clima extremadamente cálido, o cuando su motor de mayor antigüedad o kilometraje presenta síntomas de desgaste como menor presión de aceite o mayor consumo del mismo."
+    }
+  ]
+};
+---
+
+<LayoutProducto 
+  titulo={producto.titulo}
+  descripcion={`${producto.nombre} - ${producto.descripcion}`}
+  palabrasClave={`${producto.nombre.toLowerCase()}, aceite motor, aceite monogrado, 8eight, api sl`}
+>
+  <!-- Imagen Principal del Producto -->
+  <div slot="imagen-producto" class="product-image-container">
+    <img 
+      src={producto.imagen} 
+      alt={producto.nombre}
+      class="img-fluid"
+    />
+    <div class="product-badge">
+      <span class="badge-api">API SL</span>
+      <span class="badge-type">MONOGRADO</span>
+    </div>
+  </div>
+  
+  <!-- Título del Producto -->
+  <div slot="titulo-producto" class="product-title">
+    <h3>{producto.nombre}</h3>
+    <span class="product-category">Categoría: <strong>{producto.categoria}</strong></span>
+  </div>
+  
+  <!-- Nombre de la Ficha Técnica -->
+  <span slot="nombre-ficha-tecnica">
+    <i class="fa fa-file-pdf-o"></i> Ficha Técnica {producto.nombre}
+  </span>
+  
+  <!-- Descripción Principal -->
+  <div slot="descripcion-principal" class="product-description">
+    <div class="highlight-box">
+      <img src="/images/footer-logo.webp" alt="8 Eight Motor Oil Logo" class="highlight-logo" />
+      <h4>PROTECCIÓN QUE DURA MÁS</h4>
+    </div>
+    
+    <p>{producto.descripcion}</p>
+    
+    <div class="uses-section">
+      <h5><i class="fa fa-cogs"></i> Diseñado para:</h5>
+      <ul class="uses-list">
+        {producto.usos.map(uso => (
+          <li><i class={`fa ${uso.icono}`}></i> {uso.texto}</li>
+        ))}
+      </ul>
+    </div>
+    
+    <p class="conclusion-text">Su formulación de mayor viscosidad contribuye a equilibrar la presión entre el pistón y el cilindro, limitando el paso de aceite a la cámara de combustión y promoviendo un desempeño uniforme, especialmente en motores de mayor desgaste o que operan a altas temperaturas.</p>
+  </div>
+  
+  <!-- Características/Beneficios en Columnas -->
+  <div slot="caracteristicas" class="features-benefits-section row clearfix">
+    <div class="column col-lg-6 col-md-12 col-sm-12">
+      <div class="feature-box">
+        <h5><i class="fa fa-star"></i> Características</h5>
+        <ul class="feature-list">
+          {producto.caracteristicas.map(item => (
+            <li><i class={`fa ${item.icono}`}></i> {item.texto}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="column col-lg-6 col-md-12 col-sm-12">
+      <div class="benefits-box">
+        <h5><i class="fa fa-check"></i> Beneficios</h5>
+        <ul class="benefits-list">
+          {producto.beneficios.map(item => (
+            <li><i class={`fa ${item.icono}`}></i> {item.texto}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Presentaciones -->
+  <div slot="presentaciones" class="presentations-section">
+    <h5><i class="fa fa-cubes"></i> Disponible en las siguientes presentaciones:</h5>
+    <ul class="presentations-list">
+      {producto.presentaciones.map(presentacion => (
+        <li><i class={`fa ${presentacion.icono}`}></i> {presentacion.texto}</li>
+      ))}
+    </ul>
+  </div>
+  
+  <!-- Certificaciones -->
+  <div slot="galeria-imagenes" class="certificates-section">
+    <h4><i class="fa fa-certificate"></i> Certificaciones y Tecnología</h4>
+    <div class="certificates-container row">
+      {producto.certificaciones.map(cert => (
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6 text-center mb-4">
+          <div class="certificate-item">
+            <div class="certificate-icon">{cert.nombre}</div>
+            <div class="certificate-text">{cert.descripcion}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="warning-section mt-4">
+      <h5><i class="fa fa-exclamation-triangle"></i> Advertencias de seguridad</h5>
+      <p class="warning-text">
+        <strong>PELIGRO.</strong> Producto inflamable. Evite el contacto prolongado con la piel y ojos. En caso de ingestión, no induzca el vómito. Solicite atención médica de inmediato. <strong>Mantenga fuera del alcance de niños y mascotas.</strong> Almacenar en lugar fresco, seco y lejos de fuentes de calor.
+      </p>
+    </div>
+    
+    <div class="recycling-section mt-4">
+      <h5><i class="fa fa-recycle"></i> Reciclaje y responsabilidad ambiental</h5>
+      <p class="recycling-text">
+        Recicle su aceite usado en centros autorizados. Evite derrames y disponga el residuo en el sitio adecuado. <strong>¡Juntos cuidamos el medio ambiente!</strong>
+      </p>
+    </div>
+  </div>
+  
+  <!-- Preguntas Frecuentes -->
+  <ul slot="preguntas-frecuentes" class="accordion-box faq-section">
+    {producto.faqs.map((faq, index) => (
+      <li class={`accordion block ${index === 0 ? 'active-block' : ''}`}>
+        <div class={`acc-btn ${index === 0 ? 'active' : ''}`}>
+          <div class="icon-outer">
+            <span class="icon icon-plus fa fa-plus"></span>
+            <span class="icon icon-minus fa fa-minus"></span>
+          </div>
+          <i class="fa fa-question-circle-o"></i> {faq.pregunta}
+        </div>
+        <div class={`acc-content ${index === 0 ? 'current' : ''}`}>
+          <div class="content">
+            <div class="text"><i class="fa fa-info-circle"></i> {faq.respuesta}</div>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
+  
+  <!-- Sin CTA aquí, ya que está en el sidebar -->
+  
+  <style slot="head">
+    /* Estilos para mejorar la apariencia visual */
+    .product-image-container {
+      position: relative;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+    .product-badge span {
+      display: inline-block;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 4px;
+      color: white;
+    }
+    
+    .badge-api {
+      background-color: #f7d204;
+      color: #000 !important;
+    }
+    
+    .badge-type {
+      background-color: #333;
+    }
+    
+    .product-title {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .product-title h3 {
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+      color: #222;
+    }
+    
+    .product-category {
+      color: #777;
+      font-size: 0.9rem;
+    }
+    
+    .highlight-box {
+      background-color: #f7f7f7;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .highlight-logo {
+      height: 1.2rem;
+      margin-right: 15px;
+    }
+    
+    .uses-section {
+      margin: 1.5rem 0;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-left: 4px solid #f7d204;
+      border-radius: 4px;
+    }
+    
+    .uses-list li {
+      margin-bottom: 8px;
+      padding-left: 10px;
+    }
+    
+    .uses-list li i {
+      margin-right: 10px;
+      color: #f7d204;
+    }
+    
+    .conclusion-text {
+      font-weight: 500;
+      margin-top: 1.5rem;
+    }
+    
+    .features-benefits-section {
+      margin: 2rem 0;
+    }
+    
+    .feature-box, .benefits-box {
+      padding: 20px;
+      border-radius: 8px;
+      height: 100%;
+    }
+    
+    .feature-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid #f7d204;
+    }
+    
+    .benefits-box {
+      background-color: #f0f0f0;
+      border-left: 4px solid #333;
+    }
+    
+    .feature-list li, .benefits-list li {
+      margin-bottom: 12px;
+      padding-left: 10px;
+    }
+    
+    .feature-list li i, .benefits-list li i {
+      margin-right: 10px;
+      color: #f7d204;
+    }
+    
+    .presentations-section {
+      margin: 1.5rem 0;
+    }
+    
+    .presentations-list li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    
+    .presentations-list li i {
+      margin-right: 10px;
+      color: #f7d204;
+    }
+    
+    .certificates-section {
+      margin: 2rem 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+    
+    .certificates-container {
+      margin-top: 1.5rem;
+    }
+    
+    .certificate-item {
+      background-color: #fff;
+      padding: 15px 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+    
+    .certificate-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .certificate-icon {
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #f7d204;
+    }
+    
+    .certificate-text {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    
+    .warning-section, .recycling-section {
+      padding: 15px;
+      border-radius: 6px;
+    }
+    
+    .warning-section {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffd24e;
+    }
+    
+    .recycling-section {
+      background-color: #d1e7dd;
+      border-left: 4px solid #5aa17f;
+    }
+    
+    .warning-text, .recycling-text {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+    
+    .faq-section {
+      margin: 2rem 0;
+    }
+    
+    .faq-header {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    
+    /* Se removieron los estilos CTA porque ya existe un formulario en el sidebar */
+  </style>
+</LayoutProducto>
